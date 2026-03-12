@@ -1,0 +1,10 @@
+## Interface: 120000, 120001
+## Title: |cFF0070DDFafnyir Frames|r
+## Notes: Adds padding to party frames
+## Author: Fafnyir
+## Dependencies: RaidFrameSettings
+## Category-enUS: |cFF0070DDFafnyirs|r |cFFFFFFFFHoard|r
+## IconTexture: Interface\AddOns\FafnyirMedia\logo\AddonLogo
+## Version: v1.0.0
+
+FafnyirFrames.lua
