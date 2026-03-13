@@ -1,2 +1,2 @@
-# FafnyirFrames add custom formatting to RaidFRameSettings
+# FafnyirFrames adds custom formatting to RaidFRameSettings
 
