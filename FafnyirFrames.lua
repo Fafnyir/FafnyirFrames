@@ -25,19 +25,18 @@ local function AdjustCompactFrame(frame)
         frame.aggroHighlight:SetPoint("TOPLEFT", frame, "TOPLEFT", AGGRO_PADDING, -AGGRO_PADDING)
         frame.aggroHighlight:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", -AGGRO_PADDING, AGGRO_PADDING)
         frame.aggroHighlight:SetDrawLayer("BACKGROUND", -8)
+        frame.aggroHighlight:SetVertexColor(1, 0, 0, 1)
     end
 
     -- Hide the default selection highlight
     if frame.selectionHighlight then
         frame.selectionHighlight:Hide()
-        frame.selectionHighlight:SetScript("OnShow", function(self)
-            self:Hide()
-        end)
+        frame.selectionHighlight:SetScript("OnShow", function(self) self:Hide() end)
     end
 
-    -- Create our own selection highlight replacement if it doesn't exist
+    -- Create our own selection highlight as child of healthBar so it's always visible
     if not frame.fafnyrSelection then
-        local sel = frame:CreateTexture(nil, "ARTWORK", nil, -1)
+        local sel = frame.healthBar:CreateTexture(nil, "BORDER", nil, 2)
         sel:SetAtlas("RaidFrame-TargetFrame")
         sel:Hide()
         frame.fafnyrSelection = sel
@@ -70,6 +69,7 @@ local function AdjustCompactFrame(frame)
         frame.powerBar:SetHeight(POWER_BAR_HEIGHT)
         frame.powerBar:SetPoint("BOTTOMLEFT", frame, "BOTTOMLEFT", PADDING, PADDING)
         frame.powerBar:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", -PADDING, PADDING)
+        frame.powerBar:SetFrameLevel(frame:GetFrameLevel())
     end
 end
 
